@@ -1,8 +1,11 @@
+//Tampilan awal program
+//Mengimport class-class yang diperlukan dari yang telah disediakan java
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class A extends JFrame implements ActionListener{
+class A extends JFrame implements ActionListener{ 
+    //class A mengimplementasi class ActionListener yang merupakan class interface dan dihubungkan dengan class JFrame dari bawaan java
     private JButton btnA1, btnA2, btnA3, btnA4, btnA5;
     private JButton btnA6, btnA7, btnA8, btnA9, btnA10;
     private JTextField namat, not, warnat, kodet;
@@ -12,12 +15,14 @@ class A extends JFrame implements ActionListener{
 
     public A(){
 
-        setBounds(0,0,400,1000);
+        setBounds(0,0,400,1000); //mengatur tampilan dan posisi frame dengan format(x-coordinate, y-coordinate, width, height)
         setTitle("FORM PENDATAAN");
 
         ttl = new JLabel("Denah dan Kode Tempat Parkir Lantai A");
         ttl.setBounds(10,0,500,25);
         add(ttl);
+
+        //membuat tampilan tempat parkir dengan button agar penempatan posisi lebih akurat
 
         btnA1 = new JButton("A1");
         btnA1.setBounds(10,30,50,100);
@@ -59,6 +64,8 @@ class A extends JFrame implements ActionListener{
         btnA10.setBounds(250,145,65,100);
         add(btnA10);
 
+        //membuat pengisian form untuk mendata orang yang menggunakan program parkir
+
         nama = new JLabel("Masukkan Nama Pemilik");
         nama.setBounds(10,265,250,25);
         add(nama);
@@ -91,6 +98,8 @@ class A extends JFrame implements ActionListener{
         kodet.setBounds(260,370,100,25);
         add(kodet);
 
+        //button dengan pilihan selesai untuk menunjukkan hasil pengisian dan pilihan kembali untuk kembali ke menu awal
+
         btn = new JButton("Selesai");
         btn.setBounds(100,400,150,25);
         add(btn);
@@ -102,17 +111,19 @@ class A extends JFrame implements ActionListener{
         setLayout(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //menambahkan actionListener pada button yang ada
         btn.addActionListener(this);
         bttn.addActionListener(this);
     }
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==btn){
+        if(e.getSource()==btn){ //mendapatkan isi dari setiap form dan menampilkan pesan dari isian tadi ketika tombol "Selesai" mendapat respon
             String nm = namat.getText();
             String n = not.getText();
             String wrn = warnat.getText();
             String kd = kodet.getText();
             JOptionPane.showMessageDialog(null, "Data pengunjung:\n\n Nama:  "+nm+"\n Plat Nomor:    "+n+"\n Warna Kendaraan:   "+wrn+"\n Menempati blok "+kd+"\n\n*Simpan pesan ini sebagai pengingat bahwa anda telah parkir di tempat kami.", "INFORMASI", JOptionPane.INFORMATION_MESSAGE);
-        }else if(e.getSource()==bttn){
+        }else if(e.getSource()==bttn){ //ketika tombol "Kembali" mendapat respon, maka halaman akan dialihkan ke menu awal
             Menu frame = new Menu();
             setVisible(false);
         }

@@ -1,3 +1,4 @@
+//class B dibuat mirip dengan class A karena fungsinya yang sama
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

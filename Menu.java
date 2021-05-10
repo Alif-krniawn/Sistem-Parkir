@@ -1,14 +1,16 @@
+//Tampilan awal program
+//Mengimport class-class yang diperlukan dari yang telah disediakan java
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class Menu implements ActionListener{
+class Menu implements ActionListener{ //class Menu mengimplementasi class ActionListener yang merupakan class interface 
     private JLabel label1, label2, label3;
     private JButton btnA, btnB;
 
     public Menu(){
         JFrame frame = new JFrame();
-        frame.setBounds(0,0,500,400);
+        frame.setBounds(0,0,500,400); //mengatur tampilan dan posisi frame dengan format(x-coordinate, y-coordinate, width, height) 
         frame.setTitle("SIMPLE PROGRAM");
 
         label1 = new JLabel("Silahkan pilih lantai");
@@ -34,11 +36,13 @@ class Menu implements ActionListener{
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //menambahkan actionListener pada button a dan b
         btnA.addActionListener(this);
         btnB.addActionListener(this);
     }
 
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e){ //Mengatur ketika button mendapat action, dan mengarahkan ke class yang ingin dituju
         if(e.getSource()==btnA){
             A frame = new A();
             frame.setVisible(true);
